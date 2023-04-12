@@ -51,7 +51,7 @@ with open(os.path.join(folder_path, 'temp_hum.txt', 'w') as file:
 with open(os.path.join(folder_path, 'pressure.txt', 'w') as press_file:
     press_file.write('{}\n'.format(pressure))
 
-with open(os.path.join(folder_path, 'data/wind_speed.txt', 'w') as wind_file:
+with open(os.path.join(folder_path, 'wind_speed.txt', 'w') as wind_file:
     wind_file.write('{:.2f}\n'.format(wind_speed))
 
 with open(os.path.join(folder_path, 'dew_point.txt', 'w') as dew_file:
