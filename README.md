@@ -16,9 +16,9 @@ extern volatile uint32_t* pi_2_mmio_gpio;”
 > ./install.sh
 2. Edytujemy plik: supla-virtual-device.cfg i wklejamy zawartość z repozytorium
 3. Dodajemy wpis w crontab -e
-> @reboot /home/user/appdata/supla-virtual-device/supla-virtual-device/svd
+> @reboot /home/user/appdata/supla-virtual-device/supla-virtual-device/svd.sh
 4. Nadajemy uprawnienia do uruchamiania
-> chmod +x /home/user/appdata/supla-virtual-device/supla-virtual-device/svd
+> chmod +x /home/user/appdata/supla-virtual-device/supla-virtual-device/svd.sh
 
 # Instalacja supla-virtual-device-weather
 1. Pobieramy skrypt weather.py do folderu /home/user/appdata/supla-virtual-device/weather/
