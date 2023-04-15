@@ -1,5 +1,5 @@
 # supla-virtual-device-weather
-Skrypt pobierający informacje pogodowe z openweather do plików txt które można wykorzystać w supla-virtual-device i wyświetlić w supli.
+Skrypt pobierający informacje pogodowe z openweather ( https://openweathermap.org/ ) do plików txt które można wykorzystać w supla-virtual-device i wyświetlić w supli.
 
 # Instalacja supla-virtual-device
 1. Tworzymy folder appdata w swoim folderze użytkownika: mkdir /home/user/appdata/
