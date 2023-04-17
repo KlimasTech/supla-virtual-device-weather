@@ -1,14 +1,14 @@
-# Supla-Virtual-Device-Weather
 import requests
 import json
 import time
 import math
 
 # Zdefiniowanie stałych
-API_KEY = '<openweathermapapi>'
-CITY_NAME = '<your-city>'
+API_KEY = '<api-key>'
+CITY_NAME = '<city>'
+LAT = '<lat'
+LON = '<lon>'
 BASE_URL = 'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={key}&units=metric'
-
 
 # Ustawienie ścieżki do folderu dla danych
 folder_path = '/home/user/appdata/supla-virtual-device/weather/data/'
@@ -31,7 +31,6 @@ wind_speed = data['wind']['speed']
 clouds = data['clouds']['all']
 rain = data['rain']['1h'] if 'rain' in data else 0
 snow = data['snow']['1h'] if 'snow' in data else 0
-# uv_index = data['current']['uvi']
 
 # Obliczenie punktu rosy
 dew_point = round((237.7 * math.log(humidity / 100.0) + (17.27 * temperature)) / (17.27 - math.log(humidity / 100.0)), 2)
@@ -40,6 +39,16 @@ dew_point = round((237.7 * math.log(humidity / 100.0) + (17.27 * temperature)) /
 # visibility = round(data['visibility'] / 1000, 2)
 # Obliczanie widoczności w m
 visibility = round(data['visibility'])
+
+
+# Pobieranie wskaznika UVI
+response = requests.get("https://api.openweathermap.org/data/2.5/uvi", params={"lat": LAT, "lon":LON, "appid": API_KEY})
+
+if response.status_code != 200:
+    print('Błąd: Nie udało się pobrać danych z API.')
+    exit()
+data = response.json()  
+uv_index = data["value"]
 
 # Zapisanie wartości do plików tekstowych
 with open(folder_path + 'temperature.txt', 'w') as temp_file:
@@ -72,6 +81,5 @@ with open(folder_path + 'rain.txt', 'w') as rain_file:
 with open(folder_path + 'snow.txt', 'w') as snow_file:
     snow_file.write('{:.2f}\n'.format(snow))
 
-# TO DO UV Index
-#with open(folder_path + 'uv_index.txt', 'w') as uv_file:
-#    uv_file.write('{:.2f}\n'.format(uv_index))
+with open(folder_path + 'uv_index.txt', 'w') as uv_file:
+    uv_file.write('{:.2f}\n'.format(uv_index))
