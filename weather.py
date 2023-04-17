@@ -37,7 +37,9 @@ snow = data['snow']['1h'] if 'snow' in data else 0
 dew_point = round((237.7 * math.log(humidity / 100.0) + (17.27 * temperature)) / (17.27 - math.log(humidity / 100.0)), 2)
 
 # Obliczenie widoczności w km
-visibility = round(data['visibility'] / 1000, 2)
+# visibility = round(data['visibility'] / 1000, 2)
+# Obliczanie widoczności w m
+visibility = round(data['visibility'])
 
 # Zapisanie wartości do plików tekstowych
 with open(folder_path + 'temperature.txt', 'w') as temp_file:
