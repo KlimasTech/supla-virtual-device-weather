@@ -3,11 +3,9 @@ Skrypt pobierający informacje pogodowe z openweathermap ( https://openweatherma
 
 # Instalacja supla-virtual-device
 1. Tworzymy folder appdata w swoim folderze użytkownika: mkdir /home/user/appdata/
-> sudo apt-get update;
-
-> git clone https://github.com/lukbek/supla-virtual-device.git
-
-> cd supla-virtual-device
+> sudo apt-get update <br>
+> git clone https://github.com/lukbek/supla-virtual-device.git <br>
+> cd supla-virtual-device <br>
 
 ## !!! UWAGA !!!
 W razie problemów z uruchomieniem supla-virtual-device należy edytować plik:  Należy dopisać w 36 lini pliku /home/user/appdata/supla-virtual-device/src/supla-dev/src/pi_2_mmio.h słowo „extern tak ma potem wyglądać ta linia
